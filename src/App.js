@@ -41,23 +41,30 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Score">Score : {score}</div>
-      <div style={{ backgroundColor: currentColor, height: "500px" }}> </div>
+      <div className="score">Score: {score} <br></br>
+      <span># </span> <span style = {{color:"red"}}>FF</span> <span style = {{color:"green"}}>FF</span> <span style = {{color:"blue"}}>FF</span>
+      </div>
 
-      {buttonColors.map((color) => {
-        return (
-          <button
-            key={color}
-            onClick={color === currentColor ? correctGuess : wrongGuess}
-          >
-            {color}
-          </button>
-        );
-      })}
+      <div className={"currentColor"} style={{ backgroundColor: currentColor }}>
+        {" "}
+      </div>
+
+      <div className="buttonArea">
+        {buttonColors.map((color) => {
+          return (
+            <button
+              key={color}
+              onClick={color === currentColor ? correctGuess : wrongGuess}
+            >
+              {color}
+            </button>
+          );
+        })}
+      </div>
 
       <br></br>
       {/* <button onClick={changeGameColor}>{buttonColors[0]}</button> */}
-      <p>Answer : {currentColor}</p>
+      {/* <p>Answer : {currentColor}</p> */}
     </div>
   );
 }
