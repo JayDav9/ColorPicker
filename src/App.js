@@ -15,7 +15,14 @@ function App() {
 
   function getNewColors(correctColor) {
     let newColors = [correctColor, getRandomColor(), getRandomColor()];
-    setButtonColors(newColors);
+    let shuffledColors = newColors
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
+
+
+    setButtonColors(shuffledColors);
 
   }
 
@@ -40,7 +47,8 @@ function App() {
       })}
 
 <br></br>
-      <button onClick={changeGameColor}>{buttonColors[0]}</button>
+      {/* <button onClick={changeGameColor}>{buttonColors[0]}</button> */}
+      <p>Answer : {currentColor}</p>
     </div>
   );
 }
